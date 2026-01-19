@@ -1,0 +1,15 @@
+{
+    "name": "@hr/eslint-config",
+    "version": "1.0.0",
+    "main": "index.js",
+    "files": [
+        "index.js",
+        "react.js",
+        "typescript.js",
+        "import.js",
+        "hooks.js",
+        "a11y.js",
+        "security.js",
+        "performance.js"
+    ]
+}

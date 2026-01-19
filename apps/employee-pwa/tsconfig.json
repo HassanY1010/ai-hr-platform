@@ -1,0 +1,69 @@
+// apps/employee-pwa/tsconfig.json
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@hr/ui": [
+        "../../packages/ui/src"
+      ],
+      "@hr/services": [
+        "../../packages/services/src"
+      ],
+      "@hr/types": [
+        "../../packages/types/src"
+      ],
+      "@hr/utils": [
+        "../../packages/utils/src"
+      ],
+      "@hr/constants": [
+        "../../packages/constants/src"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@ui/*": [
+        "../../packages/ui/src/*"
+      ],
+      "@services/*": [
+        "../../packages/services/src/*"
+      ],
+      "@types/*": [
+        "../../packages/types/src/*"
+      ],
+      "@utils/*": [
+        "../../packages/utils/src/*"
+      ],
+      "@constants/*": [
+        "../../packages/constants/src/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

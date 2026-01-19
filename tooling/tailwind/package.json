@@ -1,0 +1,11 @@
+{
+  "name": "@hr/tailwind-config",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0"
+  }
+}

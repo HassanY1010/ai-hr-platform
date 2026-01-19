@@ -1,0 +1,69 @@
+// apps/owner-dashboard/tsconfig.json
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": [
+            "ES2020",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ],
+            "@ui/*": [
+                "../../packages/ui/src/*"
+            ],
+            "@hr/services": [
+                "../../packages/services/src/index.ts"
+            ],
+            "@hr/services/*": [
+                "../../packages/services/src/*"
+            ],
+            "@hr/types": [
+                "../../packages/types/src/index.ts"
+            ],
+            "@hr/types/*": [
+                "../../packages/types/src/*"
+            ],
+            "@hr/utils": [
+                "../../packages/utils/src/index.ts"
+            ],
+            "@hr/utils/*": [
+                "../../packages/utils/src/*"
+            ],
+            "@hr/constants": [
+                "../../packages/constants/src/index.ts"
+            ],
+            "@hr/constants/*": [
+                "../../packages/constants/src/*"
+            ],
+            "@services/*": [
+                "../../packages/services/src/*"
+            ],
+        }
+    },
+    "include": [
+        "src"
+    ],
+    "references": [
+        {
+            "path": "./tsconfig.node.json"
+        }
+    ]
+}

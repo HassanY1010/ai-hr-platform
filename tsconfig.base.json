@@ -1,0 +1,30 @@
+// tsconfig.base.json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@ui/*": ["packages/ui/*"],
+      "@services/*": ["packages/services/*"],
+      "@types/*": ["packages/types/*"],
+      "@utils/*": ["packages/utils/*"],
+      "@constants/*": ["packages/constants/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

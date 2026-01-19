@@ -1,0 +1,10 @@
+
+{
+  "name": "@hr/prettier-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
