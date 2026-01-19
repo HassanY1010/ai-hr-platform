@@ -638,7 +638,7 @@ export const uploadInterviewVideo = async (req, res, next) => {
             throw error;
         }
 
-        let videoUrl = `${process.env.API_URL || 'http://localhost:4000'} /uploads/interviews / ${req.file.filename} `;
+        let videoUrl = `${process.env.API_URL || 'http://localhost:4000'}/uploads/interviews/${req.file.filename}`;
 
         if (process.env.CLOUDINARY_CLOUD_NAME) {
             const uploadResult = await uploadFile(req.file.path, 'hr-platform/interviews');
@@ -773,7 +773,7 @@ export const uploadCandidateResume = async (req, res, next) => {
         }
 
         const resumePath = req.file.path;
-        let resumeUrl = `${process.env.API_URL || 'http://localhost:4000'} /uploads/resumes / ${req.file.filename} `;
+        let resumeUrl = `${process.env.API_URL || 'http://localhost:4000'}/uploads/resumes/${req.file.filename}`;
 
         if (process.env.CLOUDINARY_CLOUD_NAME) {
             const uploadResult = await uploadFile(req.file.path, 'hr-platform/resumes');
