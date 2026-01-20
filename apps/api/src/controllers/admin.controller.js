@@ -1,4 +1,5 @@
 import prisma from '../config/db.js';
+import { aiService } from '../ai/ai-service.js';
 
 export const getAllCompanies = async (req, res, next) => {
     try {
@@ -384,7 +385,7 @@ export const getSecurityStats = async (req, res, next) => {
     }
 };
 
-import { aiService } from '../ai/ai-service.js';
+
 
 export const analyzeSecurityRisk = async (req, res, next) => {
     try {

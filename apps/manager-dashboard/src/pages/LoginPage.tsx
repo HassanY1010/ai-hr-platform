@@ -46,6 +46,11 @@ const LoginPage: React.FC = () => {
   ]
 
   useEffect(() => {
+    const landingPageUrl = (import.meta as any).env.VITE_LANDING_PAGE_URL || 'http://localhost:3005'
+    window.location.href = `${landingPageUrl}?mode=login`
+  }, [])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 4000)
@@ -54,7 +59,8 @@ const LoginPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    window.location.href = 'http://localhost:3005?mode=login'
+    const landingPageUrl = (import.meta as any).env.VITE_LANDING_PAGE_URL || 'http://localhost:3005'
+    window.location.href = `${landingPageUrl}?mode=login`
   }
 
   const toggleDarkMode = () => {

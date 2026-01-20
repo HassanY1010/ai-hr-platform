@@ -13,6 +13,17 @@ const getApiBaseUrl = () => {
   return 'http://localhost:4000/api'
 }
 
+const getLandingPageUrl = () => {
+  const env = (import.meta as any).env
+  if (env?.VITE_LANDING_PAGE_URL) {
+    return env.VITE_LANDING_PAGE_URL
+  }
+  if (typeof process !== 'undefined' && process.env?.VITE_LANDING_PAGE_URL) {
+    return process.env.VITE_LANDING_PAGE_URL
+  }
+  return 'http://localhost:3005'
+}
+
 const getMockMode = () => {
   const env = (import.meta as any).env
   if (env?.VITE_MOCK_MODE) {
@@ -26,6 +37,7 @@ const getMockMode = () => {
 
 const API_BASE_URL = getApiBaseUrl()
 const MOCK_MODE = getMockMode()
+const LANDING_PAGE_URL = getLandingPageUrl()
 
 export class ApiClient {
   private client = axios.create({
@@ -105,7 +117,7 @@ export class ApiClient {
           if (!isAuthRequest) {
             localStorage.removeItem('access_token')
             localStorage.removeItem('user')
-            window.location.href = 'http://localhost:3005?mode=login'
+            window.location.href = `${LANDING_PAGE_URL}?mode=login`
           }
         }
 

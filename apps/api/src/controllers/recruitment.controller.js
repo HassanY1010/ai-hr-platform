@@ -1,7 +1,7 @@
 import prisma from '../config/db.js';
 import crypto from 'crypto';
 import * as aiService from '../services/ai.service.js';
-import SearchService from '../services/search.service.js';
+import { SearchService } from '../services/search.service.js';
 import { createNotification } from './notification.controller.js';
 import { uploadFile } from '../services/cloudinary.service.js';
 import fs from 'fs';

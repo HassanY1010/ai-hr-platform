@@ -112,8 +112,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         await authService.logout()
         setUser(null)
         localStorage.removeItem('faceVerified')
-        // Redirect to Landing Page (port 3005 in dev)
-        window.location.href = 'http://localhost:3005'
+        // Redirect to Landing Page
+        const landingPageUrl = (import.meta as any).env.VITE_LANDING_PAGE_URL || 'http://localhost:3005'
+        window.location.href = landingPageUrl
     }
 
     return (

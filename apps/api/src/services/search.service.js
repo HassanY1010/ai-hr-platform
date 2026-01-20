@@ -97,3 +97,5 @@ export const SearchService = {
         }
     }
 };
+
+export default SearchService;

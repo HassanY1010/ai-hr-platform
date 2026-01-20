@@ -237,7 +237,7 @@ async function main() {
         actionType: 'login',
         severity: 'high',
         target: 'نظام الإدارة',
-        status: 'error',
+        status: 'error',Progress Updates
         ip: '172.16.0.10',
         timestamp: new Date(Date.now() - 3600000 * 5), // 5 hours ago
         details: JSON.stringify({ attempts: 3, user: 'admin@techcorp.com' })
@@ -246,6 +246,18 @@ async function main() {
   });
   console.log('Created Audit Logs');
 
+  // 9. Create Subscription Codes
+  await prisma.subscriptionCode.deleteMany();
+  const codes = ['HR-FREE-2026', 'TRIAL-PREMIUM', 'AI-READY-2026'];
+  for (const code of codes) {
+    await prisma.subscriptionCode.create({
+      data: {
+        code,
+        status: 'UNUSED'
+      }
+    });
+  }
+  console.log('Created Subscription Codes:', codes.join(', '));
 
   console.log('Seeding completed.');
 

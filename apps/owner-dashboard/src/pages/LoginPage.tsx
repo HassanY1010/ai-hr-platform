@@ -1,5 +1,5 @@
 // apps/owner-dashboard/src/pages/LoginPage.tsx
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Button, Card, CardHeader, CardContent, Badge } from '@hr/ui'
 import { Eye, EyeOff, Shield, Crown, Diamond, Award, Star, Globe, Lock, Mail } from 'lucide-react'
@@ -12,9 +12,15 @@ const LoginPage: React.FC = () => {
     const [selectedRole, setSelectedRole] = useState<'owner' | 'investor' | 'partner'>('owner')
     const [isLoading] = useState(false)
 
+    useEffect(() => {
+        const landingPageUrl = (import.meta as any).env.VITE_LANDING_PAGE_URL || 'http://localhost:3005'
+        window.location.href = `${landingPageUrl}?mode=login`
+    }, [])
+
     const handleEmailLogin = (e: React.FormEvent) => {
         e.preventDefault()
-        window.location.href = 'http://localhost:3005?mode=login'
+        const landingPageUrl = (import.meta as any).env.VITE_LANDING_PAGE_URL || 'http://localhost:3005'
+        window.location.href = `${landingPageUrl}?mode=login`
     }
 
 

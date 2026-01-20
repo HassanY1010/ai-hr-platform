@@ -26,7 +26,7 @@ const Button: React.FC<{
   variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'ai' | 'outline'
   size?: 'sm' | 'md' | 'lg'
   className?: string
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
   fullWidth?: boolean
   loading?: boolean
 }> = ({
@@ -103,6 +103,11 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [showDemoCredentials, setShowDemoCredentials] = useState(false)
+
+  React.useEffect(() => {
+    const landingPageUrl = (import.meta as any).env.VITE_LANDING_PAGE_URL || 'http://localhost:3005'
+    window.location.href = `${landingPageUrl}?mode=login`
+  }, [])
 
   const { login } = useAuth();
 
@@ -297,6 +302,14 @@ const LoginPage: React.FC = () => {
                     fullWidth
                     size="lg"
                     className="mt-6 py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                      // If it's a redirect button
+                      const landingPageUrl = (import.meta as any).env.VITE_LANDING_PAGE_URL || 'http://localhost:3005'
+                      if (e.currentTarget.textContent?.includes('الانتقال')) {
+                        e.preventDefault();
+                        window.location.href = `${landingPageUrl}?mode=login`;
+                      }
+                    }}
                   >
                     <motion.div
                       whileHover={{ scale: 1.02 }}

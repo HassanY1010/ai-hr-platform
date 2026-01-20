@@ -13,7 +13,7 @@
 
 #### Build Command
 ```bash
-npm install && npx prisma generate && npx prisma migrate deploy
+npm install && npx prisma generate
 ```
 
 **Explanation**:
@@ -23,7 +23,7 @@ npm install && npx prisma generate && npx prisma migrate deploy
 
 #### Start Command
 ```bash
-node src/server.js
+npx prisma migrate deploy && node src/server.js
 ```
 
 ### Instance Type
@@ -38,7 +38,7 @@ Copy and paste these in Render Dashboard → Environment → Environment Variabl
 
 ```env
 # Database (Aiven MySQL)
-DATABASE_URL=mysql://avnadmin:YOUR_AIVEN_PASSWORD@your-aiven-host:port/defaultdb?ssl-mode=REQUIRED
+DATABASE_URL=mysql://avnadmin:YOUR_AIVEN_PASSWORD@your-aiven-host:port/defaultdb?ssl-mode=REQUIRED&connect_timeout=30
 
 # Redis (Upstash)
 REDIS_URL=rediss://default:YOUR_UPSTASH_PASSWORD@your-upstash-host:6379
